@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    print(sys.argv[0])
     x_axis = []
     splitted_line = []
     values = []
@@ -27,17 +26,15 @@ def main():
             x_axis.append(int(splitted_line.pop(0)))
             values.append(np.average([float(i) for i in splitted_line]))
 
-        print(x_axis)
-        print(values)
         plt.axis([0, x_axis[-1], np.min(values), 1.0])
         plt.plot(x_axis,values, label=sys.argv[i])
         plt.legend(loc="lower right")
 
     plt.xlabel("Rozegranych gier")
     plt.ylabel("Odsetek wygranych gier")
-    plt.show()
     plt.savefig('wykres.pdf')
     plt.close()
+    print("Done")
 
 if __name__ == '__main__':
     main()
